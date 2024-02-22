@@ -49,5 +49,5 @@ jobs:
       -
         name: Authenticate with IBM Cloud CLI
         run: |
-          ibmcloud login --apikey "${IBM_CLOUD_API_KEY}" -r "${IBM_CLOUD_REGION}" -g default
+          ibmcloud login --apikey "${IBM_CLOUD_API_KEY}" -r "${IBM_CLOUD_REGION}" -g Default
           ibmcloud schematics ws update --id "$SCHEMATICS_WS_ID"
