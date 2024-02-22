@@ -6,7 +6,6 @@ on:
       - "main"
 
 env:
-  GITHUB_SHA: ${{ github.sha }}
   IBM_CLOUD_API_KEY: ${{ secrets.IBM_CLOUD_API_KEY }}
   IBM_CLOUD_REGION: eu-de
   SCHEMATICS_WS_ID: eu-de.workspace.ce-serverless-workspace.62cf517a
@@ -35,6 +34,10 @@ jobs:
       -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
+      - 
+        name: Set sha_short
+        id: vars
+        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
       -
         name: Build and push
         uses: docker/build-push-action@v5
@@ -42,7 +45,7 @@ jobs:
           context: .
           file: ./docker/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/go_http:sha-${GITHUB_SHA::8}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/go_http:sha-${{ steps.vars.outputs.sha_short }}
       -
         name: Authenticate with IBM Cloud CLI
         run: |
