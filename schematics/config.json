@@ -1,0 +1,19 @@
+{
+    "name": "ce-serverless-workspace",
+    "type": [
+      "terraform_v1.5"
+    ],
+    "location": "eu-de",
+    "resource_group": "Default",
+    "description": "Workspace to handle Terraform state for e2e-serverless-deployment",
+    "template_data": [
+      {
+        "folder": "terraform",
+        "type": "terraform_v1.5",
+        "compact": false
+      }
+    ],
+    "template_repo": {
+      "url": "https://github.com/SRodi/e2e-serverless-deployment"
+    }
+}
