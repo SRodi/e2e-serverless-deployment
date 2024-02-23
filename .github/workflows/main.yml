@@ -17,7 +17,6 @@ jobs:
       -
         name: Checkout
         uses: actions/checkout@v4
-
       - 
         name: Install IBM Cloud CLI
         run: |
@@ -51,6 +50,14 @@ jobs:
         run: |
           ibmcloud login --apikey "${IBM_CLOUD_API_KEY}" -r "${IBM_CLOUD_REGION}" -g Default
       - 
-        name: Run Schematics update
-        run: ./schematics/update.sh "$SCHEMATICS_WS_ID"
+        name: Schematics update
+        run: |
+          source ./schematics/ops.sh
+          ws_update
+        shell: bash
+      - 
+        name: Schematics plan
+        run: |
+          source ./schematics/ops.sh
+          plan
         shell: bash
