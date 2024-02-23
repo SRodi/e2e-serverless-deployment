@@ -18,5 +18,5 @@ resource "ibm_code_engine_app" "code_engine_app_instance" {
 }
 
 output "app_url" {
-  value = ibm_code_engine_app.code_engine_app_instance.href
+  value = ibm_code_engine_app.code_engine_app_instance.endpoint
 }
