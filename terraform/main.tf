@@ -12,9 +12,10 @@ resource "ibm_code_engine_project" "code_engine_project_instance" {
 }
 
 resource "ibm_code_engine_app" "code_engine_app_instance" {
-  project_id      = ibm_code_engine_project.code_engine_project_instance.project_id
-  name            = "${local.prefix}-app"
-  image_reference = local.image
+  project_id          = ibm_code_engine_project.code_engine_project_instance.project_id
+  name                = "${local.prefix}-app"
+  image_reference     = local.image
+  scale_min_instances = 1
 }
 
 output "app_url" {
