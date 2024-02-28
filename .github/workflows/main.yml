@@ -25,6 +25,7 @@ jobs:
           ibmcloud config --check-version=false
           ibmcloud plugin install -f schematics
   docker:
+    needs: prep
     runs-on: ubuntu-latest
     steps:
       -
@@ -49,6 +50,7 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/go_http:sha-${{ steps.vars.outputs.sha_short }} , ${{ secrets.DOCKERHUB_USERNAME }}/go_http:latest
   schematics:
+    needs: [prep, docker]
     runs-on: ubuntu-latest
     steps:
       -
