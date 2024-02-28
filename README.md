@@ -33,4 +33,5 @@ Each subdirectory contains its own README.md to provide info about the implement
 1. Fork this repo
 2. Configure Secrets in GitHub repo settings (see [.github/workflows/README.md](./.github/workflows/README.md))
 3. Create a Schematics workspace based on your repo (see [schematics/README.md](./schematics/README.md))
+4. Replace this URL with your repo URL https://github.com/SRodi/e2e-serverless-deployment/blob/61b589833bf59099f584f662da3d9c8790dbed0f/schematics/config.json#L17
 4. (Optional) Update the Docker image name to reference your own image https://github.com/SRodi/e2e-serverless-deployment/blob/810a49b94e519434b3d08d299d6ceb1bc1b5a6fe/terraform/main.tf#L3
